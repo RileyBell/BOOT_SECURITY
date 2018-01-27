@@ -1,0 +1,11 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="usermanager">
+	<select id="searchuser" parameterType="map" resultType="map">
+		SELECT  USER_ID, USER_PSWD, ROLE
+		FROM    USERINFO
+		WHERE 	1=1
+		<if test="searchName != ''">
+			AND USER_ID = #{searchId}
+		</if>
+	</select>
+</mapper>
